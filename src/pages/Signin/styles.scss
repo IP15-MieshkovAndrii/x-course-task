@@ -1,0 +1,125 @@
+/* * {
+    box-sizing: border-box;
+    margin: 0;
+    outline: none;
+    padding: 0;
+    border: none;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: Arial, Helvetica, Verdana, sans-serif;
+    color: black;
+    height: 100%;
+    height: fit-content;
+    margin: 0;
+    background-color: aqua;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1 0 auto;
+}
+
+main {
+    display: block;
+} */
+
+.section-outer {
+    height: 100%;
+}
+
+.auth {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 212px);
+    justify-content: center;
+}
+
+.auth_avatar {
+    height: 160px;
+    margin-bottom: 20px;
+    width: 160px;
+}
+
+.auth_avatar img {
+    height: 100%;
+    width: 100%;
+}
+
+img {
+    border-style: none;
+}
+
+.auth_form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.auth .input, .auth_button {
+    width: 200px;
+}
+
+.auth_form input, .auth_form label {
+    margin-bottom: 20px;
+}
+
+.auth_form input {
+    border: 1px solid #797979;
+    border-radius: 10px;
+    padding: 10px 20px;
+}
+
+.auth_form .my-button {
+    width: 100%;
+}
+
+.my-button {
+    background-color: #e7e7e7;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: .4s;
+}
+
+/* button, input {
+    overflow: visible;
+}
+
+button, input, optgroup, select, textarea {
+    font-family: inherit;
+    font-size: 100%;
+    line-height: 1.15;
+    margin: 0;
+}
+
+button, select {
+    text-transform: none;
+} */
+
+@media (max-width: 320px) {
+
+    .auth_form {
+        width: 100%;
+        padding: 0 8px;
+      }
+
+    .auth .input, .auth_button {
+      width: 100%;
+    }
+    
+    .auth_avatar {
+      width: 200px;
+      height: 200px;
+    }
+  }

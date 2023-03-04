@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 50px 20px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    background-color: #88fa5e;
+    &_logo{
+      font-size: 32px;
+      color: black;
+      text-decoration: none;
+      font-weight: bold;
+      width: 40%;
+    }
+  }
+
+.cart_total-price, .header {
+    justify-content: space-between;
+}
+
+
+
+  @media (max-width: 576px){
+    .header{
+      &__logo{
+        font-size: 22px;
+      }
+    }
+  }
