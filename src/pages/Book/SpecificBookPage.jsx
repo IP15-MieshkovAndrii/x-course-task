@@ -47,11 +47,6 @@ const SpecificBookPage = () => {
               </div>
 
               {/* <button className="my-button undefined">Add to Cart</button> */}
-              {/* <MyButton
-                  disabled={isError || amount === null}
-                  onClick={(e) => addToCartHandler(e)}
-              >Add to Cart</MyButton> */}
-              <button>Add to Cart</button>
             </form> 
           </div>
         </div>
