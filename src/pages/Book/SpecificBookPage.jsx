@@ -3,15 +3,11 @@ import ReactDOM from "react-dom";
 import "./styles.scss";
 
 import img from '../../images/imageNotFound.png'
-
-import 
-
+const book = [];
 
 const SpecificBookPage = () => {
    
-
   return (
-   
       <div className="single-book">
         <div className="single-book_wrapper">
           <div className="single-book_img">
@@ -36,9 +32,9 @@ const SpecificBookPage = () => {
               <div className="single-book_count">
                 <label className="count">Count</label>
                 <div className="single-book_input">
-                  {/* <input id="count-input" max="42" min="1" type="number" value="1" />
+                  <input id="count-input" max="42" min="1" type="number" value="1" />
                   <button className="decrement" type="button">▼</button>
-                  <button className="increment" type="button">▲</button> */}
+                  <button className="increment" type="button">▲</button>
                 </div>
               </div>
               <div className="single-book_total">
@@ -46,7 +42,7 @@ const SpecificBookPage = () => {
                 <span className="value">17</span>
               </div>
 
-              {/* <button className="my-button undefined">Add to Cart</button> */}
+              <button className="my-button undefined">Add to Cart</button>
             </form> 
           </div>
         </div>
@@ -54,20 +50,6 @@ const SpecificBookPage = () => {
           {book.description}
         </p>
       </div>
-    
-    // <div className="loader">
-    //     <ThreeDots
-    //         height="120px"
-    //         width="120px"
-    //         radius="10"
-    //         color="rgba(0, 0, 0, 1)"
-    //         ariaLabel="three-dots-loading"
-    //         wrapperStyle={{}}
-    //         wrapperClassName=""
-    //         visible={true}
-    //         className="loader"
-    //     />
-    // </div>
   );
 }
 
