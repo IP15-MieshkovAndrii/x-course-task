@@ -1,26 +1,37 @@
-import React from 'react';
-import ReactDOM from "react-dom";
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './styles.scss';
-
 import img from '../../images/avatar2.png'
+import { setUser } from '../../components/LocalStorage/LocalStorage';
 
 const SigninPage = () => {
+    const [username, setUsername] = useState('');
+    const navigate = useNavigate();
+
+    const handleUsernameChange = (event) => {
+        setUsername(event.target.value);
+    }
+
+    const handleSignIn = (event) => {
+        event.preventDefault();
+        if (username.length < 4 || username.length > 16) {
+            return;
+        }
+        setUser(username)
+        navigate('/books');
+    }
     return (
         <div className="section-inner auth">
         <div className="auth_avatar">
             <img src={img} alt="Avatar" />
         </div>
-        <form className="auth_form">
+        <form onSubmit={handleSignIn} className="auth_form">
             <label>Username</label>
-            <input className="input" type="text" id="username" placeholder="type Username" />
-            <button className="my-button auth__button">Sign-In</button>
+            <input onChange={handleUsernameChange} className="input" type="text" id="username" placeholder="type Username" />
+            <button className="my-button auth_button" disabled={username.length < 4 || username.length > 16}>Sign-In</button>
         </form>
         </div>
     );
 }
-
-const rootElement = document.getElementById("root");
-ReactDOM.render(<SigninPage />, rootElement);
-
 
 export default SigninPage;

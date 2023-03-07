@@ -1,48 +1,13 @@
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-    outline: none;
-    padding: 0;
-    border: none;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    color: black;
-    height: 100%;
-    height: fit-content;
-    margin: 0;
-    background-color: aqua;
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main {
-    flex: 1 0 auto;
-}
-
-main {
-    display: block;
-} */
-
-.section-outer {
-    height: 100%;
-}
-
 .auth {
     align-items: center;
     display: flex;
     flex-direction: column;
     height: calc(100vh - 212px);
     justify-content: center;
+}
+
+.section-outer {
+    height: 100%;
 }
 
 .auth_avatar {

@@ -1,37 +1,3 @@
-/* * {
-    box-sizing: border-box;
-    margin: 0;
-    outline: none;
-    padding: 0;
-}
-
-html {
-    height: 100%;
-}
-
-body {
-    font-family: Arial, Helvetica, Verdana, sans-serif;
-    color: black;
-    height: 100%;
-    height: fit-content;
-    margin: 0;
-    background-color: aqua;
-}
-
-#root {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main {
-    flex: 1 0 auto;
-}
-
-main {
-    display: block;
-} */
-
 .books {
     padding: 20px;
 }
@@ -103,14 +69,15 @@ img {
 .dropdown_button {
     background: #6134da;
     border: none;
-    font-size: 32px;
+    font-size: 15px;
     height: 100%;
     position: absolute;
     right: 0;
     top: 50%;
+    text-align: center;
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
-    width: 40px;
+    width: 70%;
     color:#fff
 }
 
@@ -197,6 +164,17 @@ img {
     display: flex;
 }
 
+.no_book {
+    align-items: center;
+    font-size: 4rem;
+    font-weight: 700;
+    margin-top: 200px;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+}
+
 .my-button {
     background-color: #e7e7e7;
     border-radius: 10px;
@@ -208,19 +186,8 @@ font{
     vertical-align: inherit;
 }
 
-
-/* button, input {
-    overflow: visible;
+.view-book{
+    color:#000;
+    text-decoration: none;
 }
-
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
-
-button, select {
-    text-transform: none;
-} */
 

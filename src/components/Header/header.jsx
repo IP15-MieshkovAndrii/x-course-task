@@ -1,24 +1,23 @@
 import './header.scss'
-// import {useContext} from "react";
-// import Nav from "../../components/Nav/Nav";
-// import BurgerMenu from "../../components/Burger/BurgerMenu";
+import Navbar from "../Navbar/Navbar";
 import {Link} from "react-router-dom";
-// import {UserContext} from "../../features/context/UserContext";
-// import useWindowSize from "../../hooks/useWindowSize";
+import { getUsername } from '../LocalStorage/LocalStorage';
 
 const Header = ({title, authorName}) => {
-    // const {user} = useContext(UserContext)
-    // const {innerWidth} = useWindowSize()
+    const user = getUsername();
 
     return (
         <header className='header'>
-            <Link to='/' className='header_logo'>
-                <span>{title}</span> /
-                <span>{authorName}</span>
-            </Link>
-            {/* {
-                Object.keys(user).length !== 0 ? <div>{innerWidth > 768 ? <Nav/> : <BurgerMenu/>}</div> : <div></div>
-            } */}
+            <div className='section-outer header_wrapper'>
+                <Link to='/' className='header_logo'>
+                    <span>{title}</span> /
+                    <span>{authorName}</span>
+                </Link>
+                {
+                    user !== null ? <div><Navbar/></div> : <div></div>
+                }
+            </div>
+            
         </header>
     );
 };

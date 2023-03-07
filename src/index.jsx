@@ -1,21 +1,13 @@
-
-
-// ReactDOM.render(
-//   <BrowserRouter>
-//     <App />
-//   </BrowserRouter>,
-//   document.getElementById("root")
-// );
-
-
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { StrictMode } from 'react';
 import './index.scss';
-import { App } from 'containers';
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
+import { App } from './containers';
+import { createRoot } from 'react-dom/client';
+import { CartProvider } from './context/CartContext/CartContext';
+const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+  <StrictMode>
+    <CartProvider>
+      <App />
+    </CartProvider>
+  </StrictMode>
 );
