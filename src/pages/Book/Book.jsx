@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import "./styles.scss";
 import {CartContext} from "../../context/CartContext/CartContext"
+import { Button } from '../../components/Button/Button';
 
 import img from '../../images/imageNotFound.png'
 
@@ -88,7 +89,7 @@ const Book = ({books}) => {
                 <span className="value">{totalCost}</span>
               </div>
 
-              <button onClick={handleAddToCart} className="my-button undefined" type="button">Add to Cart</button>
+              <Button onClick={handleAddToCart} className="my-button undefined" type="button">Add to Cart</Button>
             </form> 
           </div>
         </div>

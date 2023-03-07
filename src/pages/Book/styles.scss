@@ -126,15 +126,16 @@ img {
     top: 0;
 }
 
-.book_form .my-button {
+.book_form .undefined {
     align-self: flex-end;
 }
 
-.my-button {
+.undefined {
     background-color: #e7e7e7;
     border-radius: 10px;
     padding: 10px 20px;
     transition: .4s;
+    width: 200px;
 }
 
 .book_description {
@@ -142,20 +143,7 @@ img {
     width: 100%;
 }
 
-// button, select {
-//     text-transform: none;
-// }
 
-// button, input {
-//     overflow: visible;
-// }
-
-// button, input, optgroup, select, textarea {
-//     font-family: inherit;
-//     font-size: 100%;
-//     line-height: 1.15;
-//     margin: 0;
-// }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {

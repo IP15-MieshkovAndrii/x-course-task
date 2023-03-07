@@ -2,9 +2,11 @@ import React, { useContext } from 'react';
 import { deleteCart } from '../../components/LocalStorage/LocalStorage';
 import './styles.scss';
 import { CartContext } from '../../context/CartContext/CartContext';
+import { Button } from '../../components/Button/Button';
+import Purchase from '../../components/Purchase/Purchase';
 
 const Cart = () => {
-  const { cartItems, getTotalPrice, cleanCart } = useContext(CartContext);
+  const { cartItems, getTotalPrice, cleanCart, purchaseFlag, setPurchaseFlag, updateCartCount, removeFromCart } = useContext(CartContext);
   const cartItemMap = new Map();
   
   cartItems.forEach((cartItem) => {
@@ -20,13 +22,22 @@ const Cart = () => {
   
   const cartItemsArray = Array.from(cartItemMap.values());
 
+  const handlePurchaseClick = () => {
+    setPurchaseFlag(true);
+    cleanCart();
+  };
+
+  const handleCartItemQuantityChange = (bookId, newQuantity) => {
+    updateCartCount(bookId, newQuantity);
+  }
+
+  const handleCartItemDelete = (bookId) => {
+    removeFromCart(bookId);
+  }
   return (
     <div className='cart'>
       <div className='cart_header'>
-        <button className='my-button auth_button' disabled={cartItemsArray.length === 0} onClick={() => {
-          cleanCart();
-          deleteCart();
-        }}>Purchase</button>
+        <Button className='cart_button' disabled={cartItemsArray.length === 0} onClick={handlePurchaseClick}>Purchase</Button>
       </div>
       {cartItemsArray.length === 0 ? (
         <div>Cart is empty</div>
@@ -38,14 +49,9 @@ const Cart = () => {
               const pricePerUnit = book.price / count;
 
               return (
-                <div className='book' key={book.id}>
-                  <span className='book__name'>{book.title}</span>
-                  <span className='book_count'>
-                    {count === 1 ? count + ' pc.' : count + ' pcs.'}
-                  </span>
-                  <span className='book_price'>{pricePerUnit.toFixed(2)}$</span>
-                  <span className='book_total-price'>{(pricePerUnit * count).toFixed(2)}$</span>
-                </div>
+                <Purchase book={book} count={count} price={pricePerUnit} onCountChange={(newCount) =>
+                  handleCartItemQuantityChange(cartItem.book.id, newCount)
+                } onClick={() => handleCartItemDelete(cartItem.book.id)}/>
               );
             })}
           </div>

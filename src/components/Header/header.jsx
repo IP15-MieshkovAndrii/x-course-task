@@ -9,7 +9,7 @@ const Header = ({title, authorName}) => {
     return (
         <header className='header'>
             <div className='section-outer header_wrapper'>
-                <Link to='/' className='header_logo'>
+                <Link to='/books' className='header_logo'>
                     <span>{title}</span> /
                     <span>{authorName}</span>
                 </Link>

@@ -1,8 +1,10 @@
 import * as React from 'react';
 import "./styles.scss";
 import Book from "./Book"
-import books from '../../data/books.json';
+import { getStoragedBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 
+
+const books = getStoragedBooks()
 const SpecificBookPage = () =>(
   <Book books={books}>
     

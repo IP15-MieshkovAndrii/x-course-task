@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './styles.scss';
 import img from '../../images/avatar2.png'
 import { setUser } from '../../components/LocalStorage/LocalStorage';
+import {Button} from '../../components/Button/Button.jsx'
 
 const SigninPage = () => {
     const [username, setUsername] = useState('');
@@ -28,7 +29,8 @@ const SigninPage = () => {
         <form onSubmit={handleSignIn} className="auth_form">
             <label>Username</label>
             <input onChange={handleUsernameChange} className="input" type="text" id="username" placeholder="type Username" />
-            <button className="my-button auth_button" disabled={username.length < 4 || username.length > 16}>Sign-In</button>
+            <Button className="auth__button" 
+                    disabled={username.length < 4 || username.length > 16}>Sign-In</Button>
         </form>
         </div>
     );

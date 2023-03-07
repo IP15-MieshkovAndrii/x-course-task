@@ -32,9 +32,6 @@ img {
     justify-content: center;
 }
 
-.auth .input, .auth_button {
-    width: 200px;
-}
 
 .auth_form input, .auth_form label {
     margin-bottom: 20px;
@@ -44,33 +41,17 @@ img {
     border: 1px solid #797979;
     border-radius: 10px;
     padding: 10px 20px;
+
+}
+.auth .input, .auth__button {
+    width: 200px;
 }
 
-.auth_form .my-button {
+.auth_form input, .my-button{
     width: 100%;
 }
 
-.my-button {
-    background-color: #e7e7e7;
-    border-radius: 10px;
-    padding: 10px 20px;
-    transition: .4s;
-}
 
-/* button, input {
-    overflow: visible;
-}
-
-button, input, optgroup, select, textarea {
-    font-family: inherit;
-    font-size: 100%;
-    line-height: 1.15;
-    margin: 0;
-}
-
-button, select {
-    text-transform: none;
-} */
 
 @media (max-width: 320px) {
 

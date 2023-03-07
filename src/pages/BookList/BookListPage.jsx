@@ -1,20 +1,34 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import './styles.scss';
 import img from '../../images/search.png'
-import booksData from '../../data/books.json';
 import Book from './Book';
+import { ThreeDots } from 'react-loader-spinner';
+import { useBooks } from '../../context/BooksContext/useBooks';
+import { getBooks, getStoragedBooks } from '../../context/BooksContext/BooksStorage/BooksStorage';
 
 const BookListPage = () => {
+    const {state: { books }, dispatch } = useBooks()
 
-    const [books, setBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [priceRange, setPriceRange] = useState('');
+    const [searchResults, setSearchResults] = useState([])
+    const [filteredBooks, setFilteredBooks] = useState([])
+
+    if (books === 0){
+        books = getStoragedBooks()
+    }
+
+    console.log(books)
+    useEffect(() => {
+        const res =  getBooks(dispatch)
+    } , [dispatch])
 
     useEffect(() => {
-        setBooks(booksData.books);
-    }, []);
+        setFilteredBooks(books)
+    }, [books])
 
-    const filteredBooks = books
+    useEffect(() => {
+        const results = filteredBooks
         .filter(book => book.title.toLowerCase().includes(searchTerm.toLowerCase()))
         .filter(book => {
             if (priceRange === '') return true;
@@ -22,6 +36,9 @@ const BookListPage = () => {
             if (priceRange === 'medium') return book.price >= 15 && book.price < 30;
             if (priceRange === 'high') return book.price >= 30;
         });
+        setSearchResults(results)
+    }, [priceRange, searchTerm, filteredBooks])
+
 
     const handlePriceFilter = (event) => {
         setPriceRange(event.target.value);
@@ -55,17 +72,37 @@ const BookListPage = () => {
                         </select>
                     </div>
                 </div>
-                <div className="books_content">
-                {
-                    filteredBooks.length === 0 ?
-                    <p className='no_book'>
-                        Not found
-                    </p>
-                    :
-                filteredBooks.map(book => (
-                    <Book key={book.id} book={book} />
-                ))}
+                {books !== 0 ?
+                    <div className="books_content">
+                    {
+                        searchResults.length === 0 ?
+                            <p className='no_book'>
+                                Not found
+                            </p>
+                        :
+                            searchResults.map(book => (
+                                <Book key={book.id} book={book} />
+                    ))}
                 </div>
+                :
+                <div
+                    className="loader"
+                    data-testid='loader'
+                >
+                    <ThreeDots
+                        height="120px"
+                        width="120px"
+                        radius="10"
+                        align-items="center"
+                        color="rgba(0, 0, 0, 1)"
+                        ariaLabel="three-dots-loading"
+                        wrapperStyle={{}}
+                        wrapperClassName=""
+                        visible={true}
+                        className="loader"
+                    />
+                </div>
+                }
             </div>
     );
 }
